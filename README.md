@@ -33,4 +33,6 @@ Se você deseja contribuir para o projeto, fique à vontade para fazer um fork d
 ## Contato
 Para mais informações ou para entrar em contato com a equipe do projeto, utilize o seguinte e-mail: [wlorenzi17@gmail.com](mailto:email@example.com).
 
+## page
+https://wendellorenzi.github.io/proj1-front/
 ---
