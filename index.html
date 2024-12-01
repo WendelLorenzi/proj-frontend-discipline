@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hortas Comunitárias - Fome Zero</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #b8e994;
         }
         
         header {
-            background-color: #27ae60;
+            background-color: #009432;
             color: #fff;
             padding: 1rem;
+            text-align: center;
         }
         
         .container {
@@ -27,27 +29,38 @@
         }
         
         nav {
-            background-color: #16a085;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
             padding: 10px;
+            background-color: #009432;
         }
-        
+
         nav ul {
-            list-style-type: none;
+            display: flex;
+            list-style: none;
             padding: 0;
             margin: 0;
         }
-        
+
         nav ul li {
-            display: inline-block;
-            margin-right: 10px;
+            margin: 0 10px; 
         }
-        
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
         }
-        
+
+        .nav-left {
+            display: flex;
+        }
+
+        .nav-right {
+            margin-left: auto; 
+        }
         main {
             min-height: 70vh;
         }
@@ -61,23 +74,18 @@
         }
         
         .section h2 {
-            color: #27ae60;
+            color: #009432;
         }
         
         footer {
-            background-color: #27ae60;
+            background-color: #009432;
             color: #fff;
             text-align: center;
             padding: 10px;
-            position: fixed;
+            position: static;
             bottom: 0;
             left: 0;
             right: 0;
-        }
-        
-        form {
-            max-width: 400px;
-            margin: 40px auto;
         }
         
         button {
@@ -86,39 +94,26 @@
             padding: 10px;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
         }
         
         button:hover {
             background-color: #555;
         }
 
-        .form-container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 100%;
-        }
-
-        .form-container h2 {
-            color: #27ae60;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        form {
+        .figures-container {
             display: flex;
-            flex-direction: column;
+            gap: 20px;
         }
 
-        input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+        figure {
+            flex: 1; 
         }
+        
+        p {
+            font-family: Georgia, 'Times New Roman', Times, serif
+        }
+
     </style>
 </head>
 <body>
@@ -127,57 +122,49 @@
     </header>
 
     <nav>
-        <ul>
+        <ul class="nav-left">
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#como-funciona">Como Funciona</a></li>
             <li><a href="#quem-somos">Quem Somos</a></li>
-            <li><a href="#register" id="showFormLink">Cadastrar-se</a></li>
+        </ul>
+    
+        <ul class="nav-right">
+            <li><button class="nav-button"  onclick="window.location.href='login.html'">Entrar</button></li>
+            <li><button class="nav-button" onclick="window.location.href='register.html'">Cadastrar-se</button></li>
         </ul>
     </nav>
 
-    <main class="container" action="#sobre">
-        <div class="section">
+    <main class="container">
+        <div class="section" id="sobre">
             <h2>Sobre Nós</h2>
             <p>O objetivo da nossa plataforma é fomentar hortas comunitárias e incentivar as pessoas a cultivarem suas próprias hortas.</p>
         </div>
 
-        <div class="section" action="#como-funciona">
+        <div class="section" id="como-funciona">
             <h2>Como Funciona</h2>
             <ul>
-                <li>Crie sua conta gratuita</li>
-                <li>Encontre ou crie uma horta comunitária perto de você</li>
-                <li>Participe das atividades e aprenda técnicas de cultivo</li>
-                <li>Compartilhe seus produtos com a comunidade</li>
+                <li> <p> Crie sua conta gratuita </p></li>
+                <li> <p> Encontre ou crie uma horta comunitária perto de você </p> </li>
+                <li> <p> Participe das atividades e aprenda técnicas de cultivo </p> </li>
+                <li> <p> Compartilhe seus produtos com a comunidade </p> </li>
             </ul>
         </div>
 
-        <div class="section" action="#quem-somos">
+        <div class="section" id="quem-somos">
             <h2>Quem Somos</h2>
             <p>Nossa missão é combater a fome e promover a sustentabilidade através do cultivo de alimentos orgânicos e locais.</p>
         </div>
     </main>
 
-    <main>
-        <div class="form-container" id="cadastroForm" style="display: none;">
-            <h2>Cadastro</h2>
-            <form action="#register" method="post">
-                <input type="text" placeholder="Nome Completo" required>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
-                <input type="text" placeholder="CPF" required>
-                <input type="text" placeholder="Endereço" required>
-                <button type="submit">Cadastrar-se</button>
-            </form>
-        </div>
-
-    <script>
-        document.getElementById('showFormLink').addEventListener('click', function() {
-            const form = document.getElementById('cadastroForm');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-            form.querySelector('form').reset();
-        });
-    </script>
-</main>
+    <div class="figures-container">
+        <figure>
+            <img src="./assets/pexels-rdne-8783843.jpg" width="450" height="400">
+        </figure>
+    
+        <figure>
+            <img src="./assets/pexels-kampus-7658782.jpg" width="450" height="400">
+        </figure>
+    </div>
 
     <footer>
         <p>&copy; 2024 Hortas Comunitárias - Fome Zero. Todos os direitos reservados.</p>
