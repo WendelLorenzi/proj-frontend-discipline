@@ -99,20 +99,23 @@
     <div class="form-container">
         <h2>Cadastro</h2>
         <form id="register" method="post">
-            <input type="text" placeholder="Nome Completo" required>
-            <input type="email" placeholder="E-mail" required>
-            <input type="password" placeholder="Senha" required>
+            <input type="text" id="name" placeholder="Nome Completo" required>
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="password" id="password" placeholder="Senha" required>
             <input type="text" placeholder="CPF" required>
             <input type="text" placeholder="Endereço" required>
-            <button type="submit" onclick="window.location.href='login.html'">Cadastrar-se</button>
+            <button type="submit" onclick="window.location.href='../login/login.html'">Cadastrar-se</button>
         </form>
         <div class="back-link">
-            <a href="../index.html">Voltar para a página inicial</a>
+            <a href="../../index.html">Voltar para a página inicial</a>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Hortas Comunitárias - Fome Zero. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="register.js"></script>
+
 </body>
 </html>
