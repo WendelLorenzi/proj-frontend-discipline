@@ -68,6 +68,7 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            margin-bottom: 10px;
         }
         
         button:hover {
@@ -114,10 +115,38 @@
         .user-list li {
             padding: 10px;
             border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .user-list li:last-child {
             border-bottom: none;
+        }
+
+        .user-list button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .user-list button:hover {
+            background-color: #c0392b;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -132,54 +161,29 @@
             <input type="text" id="user-name" placeholder="Nome do Usuário" required>
             <input type="email" id="user-email" placeholder="E-mail" required>
             <input type="password" id="user-password" placeholder="Senha" required>
-            <button type="submit">Cadastrar Usuário</button>
+            <button type="submit">Cadastrar</button>
+            <button type="button" id="clear-form">Limpar Campos</button>
         </form>
         <div class="back-link">
-            <a href="index.html">Voltar para a página inicial</a>
+            <a href="../../index.html">Voltar para a página inicial</a>
         </div>
     </div>
 
     <div class="user-list">
         <h3>Usuários Cadastrados</h3>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Pesquisar por nome ou e-mail">
+        </div>
         <ul id="user-list">
             <!-- Lista de usuários será adicionada aqui dinamicamente -->
         </ul>
+        <button type="button" id="clear-all">Excluir Todos</button>
     </div>
 
     <footer>
         <p>&copy; 2024 Hortas Comunitárias - Fome Zero. Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        // Função para adicionar um usuário à lista
-        function addUserToList(name, email, password) {
-            const userList = document.getElementById('user-list');
-
-            // Cria um novo item de lista
-            const listItem = document.createElement('li');
-            listItem.textContent = `${name} - ${email} - Senha: ${password}`;
-
-            // Adiciona o item à lista
-            userList.appendChild(listItem);
-        }
-
-        // Manipula o envio do formulário
-        document.getElementById('admin-register').addEventListener('submit', function (event) {
-            event.preventDefault(); // Evita o recarregamento da página
-
-            // Obtém os valores dos campos
-            const userName = document.getElementById('user-name').value;
-            const userEmail = document.getElementById('user-email').value;
-            const userPassword = document.getElementById('user-password').value;
-
-            // Adiciona o usuário à lista
-            addUserToList(userName, userEmail, userPassword);
-
-            // Limpa os campos do formulário
-            document.getElementById('user-name').value = '';
-            document.getElementById('user-email').value = '';
-            document.getElementById('user-password').value = '';
-        });
-    </script>
+    <script src="admin.js"></script>
 </body>
 </html>
