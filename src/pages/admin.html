@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cadastro de Usuários - Hortas Comunitárias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #b8e994;
+        }
+        
+        header {
+            background-color: #009432;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: #009432;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: static;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        .form-container h2 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        button:hover {
+            background-color: #219150;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .user-list {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .user-list h3 {
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .user-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .user-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .user-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin - Hortas Comunitárias - Fome Zero</h1>
+    </header>
+
+    <div class="form-container">
+        <h2>Cadastrar Novo Usuário</h2>
+        <form id="admin-register">
+            <input type="text" id="user-name" placeholder="Nome do Usuário" required>
+            <input type="email" id="user-email" placeholder="E-mail" required>
+            <input type="password" id="user-password" placeholder="Senha" required>
+            <button type="submit">Cadastrar Usuário</button>
+        </form>
+        <div class="back-link">
+            <a href="index.html">Voltar para a página inicial</a>
+        </div>
+    </div>
+
+    <div class="user-list">
+        <h3>Usuários Cadastrados</h3>
+        <ul id="user-list">
+            <!-- Lista de usuários será adicionada aqui dinamicamente -->
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hortas Comunitárias - Fome Zero. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para adicionar um usuário à lista
+        function addUserToList(name, email, password) {
+            const userList = document.getElementById('user-list');
+
+            // Cria um novo item de lista
+            const listItem = document.createElement('li');
+            listItem.textContent = `${name} - ${email} - Senha: ${password}`;
+
+            // Adiciona o item à lista
+            userList.appendChild(listItem);
+        }
+
+        // Manipula o envio do formulário
+        document.getElementById('admin-register').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita o recarregamento da página
+
+            // Obtém os valores dos campos
+            const userName = document.getElementById('user-name').value;
+            const userEmail = document.getElementById('user-email').value;
+            const userPassword = document.getElementById('user-password').value;
+
+            // Adiciona o usuário à lista
+            addUserToList(userName, userEmail, userPassword);
+
+            // Limpa os campos do formulário
+            document.getElementById('user-name').value = '';
+            document.getElementById('user-email').value = '';
+            document.getElementById('user-password').value = '';
+        });
+    </script>
+</body>
+</html>

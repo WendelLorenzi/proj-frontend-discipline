@@ -1,0 +1,5 @@
+repositório: https://github.com/WendelLorenzi/proj1-front
+
+pagina: https://wendellorenzi.github.io/proj1-front/
+
+vídeo: https://drive.google.com/file/d/1r_4caFCInqtsmDAxQi25VxunPHXNuL08/view?usp=sharing
